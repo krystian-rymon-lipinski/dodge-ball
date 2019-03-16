@@ -8,7 +8,7 @@ public class Ball {
     private float radius; //in relation to device's measurements
     private float mass; //to calculate bouncing
     private float xPosition, yPosition;
-    private float xVelocity, yVelocity;
+    protected float xVelocity, yVelocity;
 
 
     public Ball(int xPosition, int yPosition) {
@@ -18,7 +18,7 @@ public class Ball {
         this.yPosition = yPosition;
 
         float angle = (float) Math.random();
-        float velocity = 1;
+        float velocity = 0.5f;
         xVelocity = velocity * angle;
         yVelocity = velocity * (1-angle);
     }
@@ -49,6 +49,8 @@ public class Ball {
 
     public static void calculatePositions(ArrayList<Ball> balls, int stepTime) {
         for(Ball b : balls) {
+            //check for collisions
+
             if(b.getxPosition() - b.radius <= 0 || b.getxPosition() + b.radius >= MainActivity.screenWidth)
                 b.xVelocity *= -1; //hitting the wall
             if(b.getyPosition() - b.radius <= 0 || b.getyPosition() + b.radius >= MainActivity.screenHeight)
