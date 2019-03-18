@@ -13,7 +13,7 @@ public class Ball {
 
     public Ball(int xPosition, int yPosition) {
         mass = 10;
-        radius = 0.02f * Math.min(MainActivity.screenWidth, MainActivity.screenHeight);
+        radius = 0.02f * Math.min(GameActivity.screenWidth, GameActivity.screenHeight);
         this.xPosition = xPosition;
         this.yPosition = yPosition;
 
@@ -51,9 +51,9 @@ public class Ball {
         for(Ball b : balls) {
             //check for collisions
 
-            if(b.getxPosition() - b.radius <= 0 || b.getxPosition() + b.radius >= MainActivity.screenWidth)
+            if(b.getxPosition() - b.radius <= 0 || b.getxPosition() + b.radius >= GameActivity.screenWidth)
                 b.xVelocity *= -1; //hitting the wall
-            if(b.getyPosition() - b.radius <= 0 || b.getyPosition() + b.radius >= MainActivity.screenHeight)
+            if(b.getyPosition() - b.radius <= 0 || b.getyPosition() + b.radius >= GameActivity.screenHeight)
                 b.yVelocity *= -1;
 
             b.xPosition += b.xVelocity * stepTime;

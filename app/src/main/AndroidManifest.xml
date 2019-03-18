@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/FullscreenMode">
+        <activity android:name=".GameActivity"
+            android:screenOrientation="reverseLandscape"
+            android:theme="@style/FullscreenMode"> </activity>
+        <activity
+            android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,3 +1,13 @@
 <resources>
+    <!-- MainActivity.java -->
     <string name="app_name">DodgeBall</string>
+    <string name="settings">Ustawienia</string> <!-- main menu -->
+    <string name="highlights">Najlepsze wyniki</string> <!-- main menu -->
+    <string name="play_button">Graj</string>
+
+    <!-- GameActivity.java -->
+    <string name="dialog_message">Narożnik oznaczony czerwonym kwadratem, powininen być narożnikiem lewym górnym.
+    Kąt pochylenia urządzenia w górę/dół w momencie rozpoczęcia gry będzie uznany za kąt 0.</string>
+    <string name="got_it">Rozumiem</string>
+    <string name="game_time">Czas gry: %1$.2f s</string>
 </resources>
