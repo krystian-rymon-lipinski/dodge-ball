@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onOptionsItemSelected(item);
         switch(item.getItemId()) {
             case R.id.highscore_item:
-                //startActivity(new Intent(this, HighscoreListActivity.class));
+                startActivity(new Intent(this, HighscoreListActivity.class));
                 return true;
             case R.id.settings_item:
                 //startActivity(new Intent(this, SettingsActivity.class));

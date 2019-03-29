@@ -1,8 +1,5 @@
 package com.krystian.dodgeball;
 
-import android.content.Context;
-import android.hardware.SensorManager;
-import android.util.Log;
 
 public class PlayBall extends Ball {
 

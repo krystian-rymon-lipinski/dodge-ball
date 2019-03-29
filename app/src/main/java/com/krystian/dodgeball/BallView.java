@@ -25,7 +25,7 @@ public class BallView extends View {
         super.onDraw(canvas);
         canvas.drawRect(0, 0, 10, 10, paint); //show left up corner
         for(Ball b : Ball.balls) {
-            if(Ball.balls.indexOf(b) == 0) //first established ball is always playBall
+            if(b.getClass() == PlayBall.class)
                 canvas.drawCircle(b.getxPosition(), b.getyPosition(), b.getRadius(), paint); //playBall
             else
                 canvas.drawCircle(b.getxPosition(), b.getyPosition(), b.getRadius(), paint2); //other balls
@@ -33,6 +33,12 @@ public class BallView extends View {
         float time = (float) GameActivity.time/1000;
         canvas.drawText(getResources().getString(R.string.game_time, time),
                 (float)GameActivity.screenHeight/7, (float)GameActivity.screenHeight/7, paint3);
+        if(GameActivity.gameState == GameState.PAUSED) {
+            canvas.drawText(getResources().getString(R.string.paused), (float)GameActivity.screenWidth/2,
+                    (float)GameActivity.screenHeight/2, paint3);
+            setAlpha(0.5f);
+        }
+        else setAlpha(1);
 
     }
 }

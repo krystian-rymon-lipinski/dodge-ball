@@ -6,4 +6,6 @@
 
     <color name="playBallColor">#FF0000</color>
     <color name="timeTextColor">#3355AA</color>
+
+    <color name="textColor">#000000</color>
 </resources>

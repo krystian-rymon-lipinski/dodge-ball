@@ -10,4 +10,19 @@
     Kąt pochylenia urządzenia w górę/dół w momencie rozpoczęcia gry będzie uznany za kąt 0.</string>
     <string name="got_it">Rozumiem</string>
     <string name="game_time">Czas gry: %1$.2f s</string>
+    <string name="paused">Pauza</string>
+    <!-- Game result not in highscore -->
+    <string name="game_lost">Przegrana!</string>
+    <string name="game_result">Gra ukończona z wynikiem %1$.2f s.</string>
+    <string name="restart">Restart</string>
+    <string name="cancel">Anuluj</string>
+    <!-- Game result in highscore -->
+    <string name="congratulations">Gratulacje!</string>
+    <string name="highscore_result">Z wynikiem %1$.2f s kwalifikujesz się do listy najlepszych wyników.</string>
+    <string name="enter_name">Wprowadź imię</string>
+    <string name="highscore_done">OK</string>
+
+
+    <!-- HighscoreActivityList -->
+    <string name="database_unreachable">Nie można nawiązać połączenia z bazą danych</string>
 </resources>

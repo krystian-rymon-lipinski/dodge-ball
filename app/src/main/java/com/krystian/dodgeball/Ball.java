@@ -1,6 +1,7 @@
 package com.krystian.dodgeball;
 
 import java.util.ArrayList;
+import static com.krystian.dodgeball.GameActivity.gameState;
 
 public class Ball {
     public static ArrayList<Ball> balls = new ArrayList<>();
@@ -47,17 +48,28 @@ public class Ball {
         return yVelocity;
     }
 
-    public static void calculatePositions(ArrayList<Ball> balls, int stepTime) {
-        for(Ball b : balls) {
+    public void calculatePositions(ArrayList<Ball> balls, int stepTime) {
+        for(int i=0; i<balls.size(); i++) {
             //check for collisions
+            if(balls.get(i).getClass() == PlayBall.class) {
+                for(Ball bb : balls) {
+                    double xDiff = Math.abs(balls.get(i).xPosition - bb.xPosition);
+                    double yDiff = Math.abs(balls.get(i).yPosition - bb.yPosition);
+                    double distanceBetween = Math.sqrt(xDiff*xDiff + yDiff*yDiff); //between play ball and one of normal ones
+                    if(distanceBetween < 2*radius && distanceBetween != 0) //you hit one of the balls
+                        gameState = GameState.LOST;
+                }
+            }
 
-            if(b.getxPosition() - b.radius <= 0 || b.getxPosition() + b.radius >= GameActivity.screenWidth)
-                b.xVelocity *= -1; //hitting the wall
-            if(b.getyPosition() - b.radius <= 0 || b.getyPosition() + b.radius >= GameActivity.screenHeight)
-                b.yVelocity *= -1;
+            if(balls.get(i).getxPosition() - balls.get(i).radius <= 0 ||
+                    balls.get(i).getxPosition() + balls.get(i).radius >= GameActivity.screenWidth)
+                balls.get(i).xVelocity *= -1; //hitting the wall
+            if(balls.get(i).getyPosition() - balls.get(i).radius <= 0 ||
+                    balls.get(i).getyPosition() + balls.get(i).radius >= GameActivity.screenHeight)
+                balls.get(i).yVelocity *= -1;
 
-            b.xPosition += b.xVelocity * stepTime;
-            b.yPosition += b.yVelocity * stepTime;
+            balls.get(i).xPosition += balls.get(i).xVelocity * stepTime; //update balls' positions
+            balls.get(i).yPosition += balls.get(i).yVelocity * stepTime;
         }
     }
 }
