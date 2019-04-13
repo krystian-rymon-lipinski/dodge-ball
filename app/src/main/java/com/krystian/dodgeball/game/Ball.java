@@ -1,49 +1,60 @@
-package com.krystian.dodgeball;
+package com.krystian.dodgeball.game;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import java.util.ArrayList;
-import static com.krystian.dodgeball.GameActivity.gameState;
+import static com.krystian.dodgeball.game.GameActivity.gameState;
 
-public class Ball {
-    public static ArrayList<Ball> balls = new ArrayList<>();
+public class Ball implements Parcelable {
 
     private float radius; //in relation to device's measurements
-    private float mass; //to calculate bouncing
     private float xPosition, yPosition;
     protected float xVelocity, yVelocity;
 
 
     public Ball(int xPosition, int yPosition) {
-        mass = 10;
         radius = 0.02f * Math.min(GameActivity.screenWidth, GameActivity.screenHeight);
         this.xPosition = xPosition;
         this.yPosition = yPosition;
 
-        float angle = (float) Math.random();
+        float angle = (float) Math.random(); // 0 < angle < 1; sin(alfa)
         float velocity = 0.5f;
-        xVelocity = velocity * angle;
+        xVelocity = velocity * angle; //angle * velocity = sin(alfa) * velocity = velocity_x
         yVelocity = velocity * (1-angle);
     }
+
+    protected Ball(Parcel in) {
+        radius = in.readFloat();
+        xPosition = in.readFloat();
+        yPosition = in.readFloat();
+        xVelocity = in.readFloat();
+        yVelocity = in.readFloat();
+    }
+
+    public static final Creator<Ball> CREATOR = new Creator<Ball>() {
+        @Override
+        public Ball createFromParcel(Parcel in) {
+            return new Ball(in);
+        }
+
+        @Override
+        public Ball[] newArray(int size) {
+            return new Ball[size];
+        }
+    };
 
     public float getRadius() {
         return radius;
     }
-
-    public float getMass() {
-        return mass;
-    }
-
     public float getxPosition() {
         return xPosition;
     }
-
     public float getyPosition() {
         return yPosition;
     }
-
     public float getxVelocity() {
         return xVelocity;
     }
-
     public float getyVelocity() {
         return yVelocity;
     }
@@ -71,6 +82,20 @@ public class Ball {
             balls.get(i).xPosition += balls.get(i).xVelocity * stepTime; //update balls' positions
             balls.get(i).yPosition += balls.get(i).yVelocity * stepTime;
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeFloat(radius);
+        dest.writeFloat(xPosition);
+        dest.writeFloat(yPosition);
+        dest.writeFloat(xVelocity);
+        dest.writeFloat(yVelocity);
     }
 }
 

@@ -1,9 +1,9 @@
-package com.krystian.dodgeball;
+package com.krystian.dodgeball.game;
 
 
 public class PlayBall extends Ball {
 
-    private static final float ACCELERATION_COEFFICIENT = 0.01f; //max value (when rotation angle is maxed)
+    private static final float ACCELERATION_COEFFICIENT = 0.01f; //max value (when rotation angle is maxed (equals 1))
 
     private float xAcceleration;
     private float yAcceleration;

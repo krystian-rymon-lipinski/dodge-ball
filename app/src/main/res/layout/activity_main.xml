@@ -8,10 +8,22 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <Button
+
+
+    <TextView android:id="@+id/game_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="@string/game_description"
+        android:layout_margin="16dp"
+        android:textColor="@color/textColor"
+        android:gravity="center"/>
+
+    <Button android:background="@drawable/play_button"
         android:id="@+id/play_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/play_button" />
+        android:text="@string/play_button"
+        android:textSize="32sp"/>
 
 </LinearLayout>

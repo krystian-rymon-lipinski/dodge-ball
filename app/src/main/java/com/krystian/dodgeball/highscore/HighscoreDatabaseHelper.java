@@ -1,4 +1,4 @@
-package com.krystian.dodgeball;
+package com.krystian.dodgeball.highscore;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

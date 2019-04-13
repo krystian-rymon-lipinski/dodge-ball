@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GameActivity"
+        <activity android:name=".game.GameActivity"
             android:screenOrientation="reverseLandscape"
             android:theme="@style/FullscreenMode"> </activity>
         <activity
@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HighscoreListActivity"> </activity>
+        <activity android:name=".highscore.HighscoreListActivity"> </activity>
     </application>
 
 </manifest>

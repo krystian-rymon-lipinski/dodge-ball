@@ -1,4 +1,4 @@
-package com.krystian.dodgeball;
+package com.krystian.dodgeball.highscore;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.widget.Toast;
+
+import com.krystian.dodgeball.R;
 
 public class HighscoreDatabase {
 

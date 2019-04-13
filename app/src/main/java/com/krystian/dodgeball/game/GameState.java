@@ -1,4 +1,4 @@
-package com.krystian.dodgeball;
+package com.krystian.dodgeball.game;
 
 public enum GameState {
     STARTING, RUNNING, PAUSED, LOST
